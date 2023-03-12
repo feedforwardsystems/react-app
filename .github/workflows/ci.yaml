@@ -18,8 +18,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - uses: actions/setup-node@v3
-        with:
-          node-version: '16-nightly'    
+        # with:
+        #   node-version: '16-nightly'    
       - run: npm ci
       - run: npm run format:check
       - run: npm test -- --coverage
