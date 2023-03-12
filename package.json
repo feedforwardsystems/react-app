@@ -16,8 +16,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "format:check": "prettier --check \"**/*.{,jsx.yml,yaml,json,css,scss,md,toml}\"",
-    "format": "prettier --write \"**/*.{,jsx.yml,yaml,json,css,scss,md,toml}\""
+    "format:check": "prettier --check \"**/*.{,jsx,json,css,scss,md,toml}\"",
+    "format": "prettier --write \"**/*.{,jsx,json,css,scss,md,toml}\""
   },
   "eslintConfig": {
     "extends": [
