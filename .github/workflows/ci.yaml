@@ -11,17 +11,35 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-{{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
       - uses: actions/setup-node@v3
         with:
-          node-version: '16-nightly'
+          node-version: '16-nightly'    
       - run: npm ci
       - run: npm run format:check
       - run: npm test -- --coverage
         env:
           CI: true
+      - name: Upload test coverage
+        uses: actions/upload-artifact@v3
+        with:
+          name: code-coverage
+          path: coverage
       - name: Build project
         if: github.event_name == 'push'
         run: npm run build
+      - name: Upload build directory
+        if: github.event_name == 'push'      
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: build
+      - uses: actions/download-artifact@v3
       - run: npm install -g surge 
       - name: Deploy to staging
         if: github.event_name == 'push'
