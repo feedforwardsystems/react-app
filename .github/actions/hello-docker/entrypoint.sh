@@ -16,4 +16,6 @@ echo "AAA"
 echo "BBB"
 echo "::endgroup"
 
-echo "::set-env name=HI::-H-I-"
+# echo "::set-env name=HI::-H-I-"
+
+echo "HI=-H-I-" >> $GITHUB_ENV
