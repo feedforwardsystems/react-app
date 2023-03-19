@@ -9,4 +9,5 @@ jobs:
         with:
           who-to-greet: "ABC"
       - run: |
-          echo "Time: ${{ steps.hello.outputs.time }}"  
+          echo "Time: ${{ steps.hello.outputs.time }}" 
+          echo $HI
