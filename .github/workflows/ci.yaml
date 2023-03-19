@@ -57,3 +57,6 @@ jobs:
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
