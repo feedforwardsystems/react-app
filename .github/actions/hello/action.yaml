@@ -1,0 +1,14 @@
+name: Hello World
+author: rwxproject
+description: rwx
+inputs:
+  who-to-greet:
+    description: "who to greet"
+    required: true
+    default: rwx
+outputs:
+  time:
+    description: "greet time"
+runs:
+  using: "node16"
+  main: "index.js"
