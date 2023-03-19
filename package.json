@@ -19,6 +19,11 @@
     "format:check": "prettier --check \"**/*.{js,jsx,json,css,scss,md,toml}\"",
     "format": "prettier --write \"**/*.{js,jsx,json,css,scss,md,toml}\""
   },
+  "husky":{
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -38,6 +43,9 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "husky": "^8.0.3",
     "prettier": "2.8.4",
     "semantic-release": "^20.1.1"
   }
